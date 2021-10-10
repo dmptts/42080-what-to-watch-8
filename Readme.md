@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть»
 
 * Студент: [Дмитрий Соловьев](https://up.htmlacademy.ru/react/8/user/42080).
-* Наставник: [Олег Гулов](https://htmlacademy.ru/profile/gurovoleg).
+* Наставник: [Олег Гуров](https://htmlacademy.ru/profile/gurovoleg).
 
 ---
 
