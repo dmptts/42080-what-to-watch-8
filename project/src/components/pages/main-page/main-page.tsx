@@ -1,4 +1,4 @@
-import { FilmCard } from '../film-card/film-card';
+import {FilmCard} from "../../film-card/film-card";
 
 type MainPageProps = {
   title: string,
@@ -6,7 +6,7 @@ type MainPageProps = {
   releaseDate: string
 }
 
-function MainPage ({title, genre, releaseDate}: MainPageProps):JSX.Element {
+function MainPage ({title, genre, releaseDate}: MainPageProps): JSX.Element {
   return (
     <>
       <section className="film-card">

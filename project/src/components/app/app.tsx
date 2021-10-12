@@ -1,4 +1,4 @@
-import { MainPage } from '../main-page/main-page';
+import {MainPage} from '../pages/main-page/main-page';
 
 type AppProps = {
   title: string,
@@ -9,9 +9,9 @@ type AppProps = {
 function App({title, genre, releaseDate}: AppProps): JSX.Element {
   return (
     <MainPage
-      title = {title}
-      genre = {genre}
-      releaseDate = {releaseDate}
+      title={title}
+      genre={genre}
+      releaseDate={releaseDate}
     />
   );
 }
