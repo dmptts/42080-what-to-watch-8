@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {MainPage} from '../pages/main-page/main-page';
 import {SignInPage} from '../pages/sign-in-page/sign-in-page';
-import {MyListPage} from '../pages/my-list-page/my-page-list';
+import {MyListPage} from '../pages/my-list-page/my-list-page';
 import {MoviePage} from '../pages/movie-page/movie-page';
 import {AppRoute, AuthStatus} from '../../const';
 import {AddReviewPage} from '../pages/add-review-page/add-review-page';
@@ -34,18 +34,18 @@ function App({title, genre, releaseDate, films}: AppProps): JSX.Element {
         </Route>
         <PrivateRoute
           path={AppRoute.MyListPage}
-          render={() => <MyListPage />}
-          authStatus={AuthStatus.UnAuth}
+          render={() => <MyListPage films={films} />}
+          authStatus={AuthStatus.Auth}
           exact
         />
         <Route path={AppRoute.MoviePage} exact>
           <MoviePage />
         </Route>
         <Route path={AppRoute.AddReviewPage} exact>
-          <AddReviewPage />
+          <AddReviewPage films={films} />
         </Route>
         <Route path={AppRoute.PlayerPage} exact>
-          <PlayerPage />
+          <PlayerPage films={films}/>
         </Route>
         <Route>
           <NotFoundPage />

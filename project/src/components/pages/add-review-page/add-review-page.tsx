@@ -1,4 +1,12 @@
-function AddReviewPage (): JSX.Element {
+import {Films} from '../../../types/films';
+
+type AddReviewPageProps = {
+  films: Films
+}
+
+function AddReviewPage ({films}: AddReviewPageProps): JSX.Element {
+  const {name, posterImage} = films[0];
+
   return (
     <section className="film-card film-card--full">
       <div className="film-card__header">
@@ -20,7 +28,7 @@ function AddReviewPage (): JSX.Element {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <a href="film-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                <a href="film-page.html" className="breadcrumbs__link">{name}</a>
               </li>
               <li className="breadcrumbs__item">
                 <a href="#todo" className="breadcrumbs__link">Add review</a>
@@ -41,7 +49,7 @@ function AddReviewPage (): JSX.Element {
         </header>
 
         <div className="film-card__poster film-card__poster--small">
-          <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327"/>
+          <img src={posterImage} alt={name} width="218" height="327"/>
         </div>
       </div>
 
