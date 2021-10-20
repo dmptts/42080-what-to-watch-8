@@ -8,22 +8,25 @@ import {AddReviewPage} from '../pages/add-review-page/add-review-page';
 import {PlayerPage} from '../pages/player-page/player-page';
 import {PrivateRoute} from '../private-route/private-route';
 import {NotFoundPage} from '../pages/not-found-page/not-found-page';
+import {Films} from '../../types/films';
 
 type AppProps = {
   title: string,
   genre: string,
-  releaseDate: string
+  releaseDate: string,
+  films: Films
 }
 
-function App({title, genre, releaseDate}: AppProps): JSX.Element {
+function App({title, genre, releaseDate, films}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
         <Route path={AppRoute.MainPage} exact>
           <MainPage
-            title='The Grand Budapest Hotel'
-            genre='Drama'
-            releaseDate='2014'
+            title={title}
+            genre={genre}
+            releaseDate={releaseDate}
+            films={films}
           />
         </Route>
         <Route path={AppRoute.SignInPage} exact>

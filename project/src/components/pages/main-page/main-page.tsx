@@ -1,12 +1,14 @@
-import {FilmCard} from '../../film-card/film-card';
+import {Films} from '../../../types/films';
+import {FilmList} from '../../film-list/film-list';
 
 type MainPageProps = {
   title: string,
   genre: string,
-  releaseDate: string
+  releaseDate: string,
+  films: Films
 }
 
-function MainPage ({title, genre, releaseDate}: MainPageProps): JSX.Element {
+function MainPage ({title, genre, releaseDate, films}: MainPageProps): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -106,28 +108,7 @@ function MainPage ({title, genre, releaseDate}: MainPageProps): JSX.Element {
             </li>
           </ul>
 
-          <div className="catalog__films-list">
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-            <FilmCard />
-          </div>
+          <FilmList films={films} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
