@@ -8,7 +8,6 @@ type FilmCardProps = {
 
 function FilmCard ({film, setActiveCard}: FilmCardProps): JSX.Element {
   const {id, name, previewImage} = film;
-  console.log(id); //eslint-disable-line
 
   return (
     <article
