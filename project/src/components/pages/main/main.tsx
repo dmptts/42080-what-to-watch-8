@@ -1,14 +1,14 @@
 import {Films} from '../../../types/films';
 import {FilmList} from '../../film-list/film-list';
 
-type MainPageProps = {
+type MainProps = {
   title: string,
   genre: string,
   releaseDate: string,
   films: Films
 }
 
-function MainPage ({title, genre, releaseDate, films}: MainPageProps): JSX.Element {
+function Main ({title, genre, releaseDate, films}: MainProps): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -133,4 +133,4 @@ function MainPage ({title, genre, releaseDate, films}: MainPageProps): JSX.Eleme
   );
 }
 
-export {MainPage};
+export {Main};

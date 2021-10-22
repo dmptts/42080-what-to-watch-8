@@ -1,10 +1,10 @@
 import {Films} from '../../../types/films';
 
-type PlayerPageProps = {
+type PlayerProps = {
   films: Films
 }
 
-function PlayerPage ({films}: PlayerPageProps): JSX.Element {
+function Player ({films}: PlayerProps): JSX.Element {
   const {name} = films[0];
 
   return (
@@ -43,4 +43,4 @@ function PlayerPage ({films}: PlayerPageProps): JSX.Element {
   );
 }
 
-export {PlayerPage};
+export {Player};

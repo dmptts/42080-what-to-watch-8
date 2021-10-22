@@ -1,13 +1,13 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {MainPage} from '../pages/main-page/main-page';
-import {SignInPage} from '../pages/sign-in-page/sign-in-page';
-import {MyListPage} from '../pages/my-list-page/my-list-page';
-import {MoviePage} from '../pages/movie-page/movie-page';
+import {Main} from '../pages/main/main';
+import {SignIn} from '../pages/sign-in/sign-in';
+import {MyList} from '../pages/my-list/my-list';
+import {Movie} from '../pages/movie/movie';
 import {AppRoute, AuthStatus} from '../../const';
-import {AddReviewPage} from '../pages/add-review-page/add-review-page';
-import {PlayerPage} from '../pages/player-page/player-page';
+import {AddReview} from '../pages/add-review/add-review';
+import {Player} from '../pages/player/player';
 import {PrivateRoute} from '../private-route/private-route';
-import {NotFoundPage} from '../pages/not-found-page/not-found-page';
+import {NotFound} from '../pages/not-found/not-found';
 import {Films} from '../../types/films';
 
 type AppProps = {
@@ -21,34 +21,37 @@ function App({title, genre, releaseDate, films}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={AppRoute.MainPage} exact>
-          <MainPage
+        <Route path={AppRoute.Main} exact>
+          <Main
             title={title}
             genre={genre}
             releaseDate={releaseDate}
             films={films}
           />
         </Route>
-        <Route path={AppRoute.SignInPage} exact>
-          <SignInPage />
+        <Route path={AppRoute.SignIn} exact>
+          <SignIn />
         </Route>
         <PrivateRoute
-          path={AppRoute.MyListPage}
-          render={() => <MyListPage films={films} />}
+          path={AppRoute.MyList}
+          render={() => <MyList films={films} />}
           authStatus={AuthStatus.Auth}
           exact
         />
-        <Route path={AppRoute.MoviePage} exact>
-          <MoviePage />
+        <Route path={AppRoute.Movie} exact>
+          <Movie />
         </Route>
-        <Route path={AppRoute.AddReviewPage} exact>
-          <AddReviewPage films={films} />
-        </Route>
-        <Route path={AppRoute.PlayerPage} exact>
-          <PlayerPage films={films}/>
+        <PrivateRoute
+          path={AppRoute.AddReview}
+          render={() => <AddReview films={films} />}
+          authStatus={AuthStatus.Auth}
+          exact
+        />
+        <Route path={AppRoute.Player} exact>
+          <Player films={films}/>
         </Route>
         <Route>
-          <NotFoundPage />
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

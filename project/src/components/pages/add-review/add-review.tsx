@@ -3,11 +3,11 @@ import {AppRoute} from '../../../const';
 import {Films} from '../../../types/films';
 import {ReviewForm} from '../../review-form/review-form';
 
-type AddReviewPageProps = {
+type AddReviewProps = {
   films: Films
 }
 
-function AddReviewPage ({films}: AddReviewPageProps): JSX.Element {
+function AddReview ({films}: AddReviewProps): JSX.Element {
   const {name, posterImage} = films[0];
 
   return (
@@ -21,7 +21,7 @@ function AddReviewPage ({films}: AddReviewPageProps): JSX.Element {
 
         <header className="page-header">
           <div className="logo">
-            <Link to={AppRoute.MainPage} className="logo__link">
+            <Link to={AppRoute.Main} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
@@ -64,4 +64,4 @@ function AddReviewPage ({films}: AddReviewPageProps): JSX.Element {
   );
 }
 
-export {AddReviewPage};
+export {AddReview};

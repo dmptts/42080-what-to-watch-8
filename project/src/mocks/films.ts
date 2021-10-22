@@ -1,4 +1,4 @@
-export const Films = [
+export const films = [
   {
     id: 1,
     name: 'We Need To Talk About Kevin',
