@@ -1,25 +1,26 @@
 import {Link} from 'react-router-dom';
-import {AppRoute} from '../../../const';
+import {Films} from '../../../types/films';
+import {Footer} from '../../footer/footer';
+import {Logo} from '../../logo/logo';
 
-function Movie (): JSX.Element {
+type MovieProps = {
+  films: Films
+}
+
+function Movie ({films}: MovieProps): JSX.Element {
+  const {id, name, posterImage, backgroundImage} = films[0];
   return (
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={backgroundImage} alt={name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
           <header className="page-header film-card__head">
-            <div className="logo">
-              <Link to={AppRoute.Main} className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </Link>
-            </div>
+            <Logo />
 
             <ul className="user-block">
               <li className="user-block__item">
@@ -54,7 +55,7 @@ function Movie (): JSX.Element {
                   </svg>
                   <span>My list</span>
                 </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
+                <Link to={`/films/${id}/review`} className="btn film-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -63,7 +64,7 @@ function Movie (): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={posterImage} alt={name} width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
@@ -146,19 +147,7 @@ function Movie (): JSX.Element {
           </div>
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <Link to={AppRoute.Main} className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </Link>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

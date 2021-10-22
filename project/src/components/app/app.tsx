@@ -39,7 +39,7 @@ function App({title, genre, releaseDate, films}: AppProps): JSX.Element {
           exact
         />
         <Route path={AppRoute.Movie} exact>
-          <Movie />
+          <Movie films={films}/>
         </Route>
         <PrivateRoute
           path={AppRoute.AddReview}
