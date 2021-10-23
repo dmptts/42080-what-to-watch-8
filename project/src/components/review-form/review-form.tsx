@@ -18,15 +18,11 @@ function ReviewForm (): JSX.Element {
       }
     }
     >
-      <div className="rating">
-        <div className="rating__stars">
-          <Rating
-            starsCount={STARS_COUNT}
-            rating={rating}
-            setRating={setRating}
-          />
-        </div>
-      </div>
+      <Rating
+        starsCount={STARS_COUNT}
+        rating={rating}
+        setRating={setRating}
+      />
 
       <div className="add-review__text">
         <textarea
