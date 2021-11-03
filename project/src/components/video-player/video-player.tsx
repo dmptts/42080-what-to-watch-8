@@ -18,6 +18,7 @@ function VideoPlayer ({film, isVideoPlaying}: VideoPlayerProps): JSX.Element {
       } else {
         videoRef.current.pause();
         videoRef.current.currentTime = 0;
+        videoRef.current.load();
       }
     }
   }, [isVideoPlaying]);
