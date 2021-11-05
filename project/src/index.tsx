@@ -6,9 +6,7 @@ import {films} from './mocks/films';
 ReactDOM.render(
   <React.StrictMode>
     <App
-      title = "The Grand Budapest Hotel"
-      genre = "Drama"
-      releaseDate = "2014"
+      promoFilm={films[0]}
       films = {films}
     />
   </React.StrictMode>,
