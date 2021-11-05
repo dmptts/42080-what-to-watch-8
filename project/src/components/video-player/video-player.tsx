@@ -1,5 +1,6 @@
 import {useEffect, useRef} from 'react';
-import {VideoStatus} from '../../const';
+import {Link, generatePath} from 'react-router-dom';
+import {AppRoute, VideoStatus} from '../../const';
 import {Film} from '../../types/films';
 
 type VideoPlayerProps = {
@@ -12,7 +13,7 @@ type VideoPlayerProps = {
 }
 
 function VideoPlayer ({film, videoStatus, setVideoStatus, controls, muted, autoPlay}: VideoPlayerProps): JSX.Element {
-  const {name, videoLink, previewVideoLink} = film;
+  const {id, name, videoLink, previewVideoLink} = film;
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -42,7 +43,7 @@ function VideoPlayer ({film, videoStatus, setVideoStatus, controls, muted, autoP
 
       {controls ? (
         <>
-          <button type="button" className="player__exit">Exit</button>
+          <Link to={generatePath(AppRoute.Movie, {id})} className="player__exit">Exit</Link>
 
           <div className="player__controls">
             <div className="player__controls-row">
@@ -69,7 +70,7 @@ function VideoPlayer ({film, videoStatus, setVideoStatus, controls, muted, autoP
                 </button>}
               <div className="player__name">{name}</div>
 
-              <button type="button" className="player__full-screen">
+              <button type="button" className="player__full-screen" onClick={() => document.querySelector('.player__video')?.requestFullscreen()}>
                 <svg viewBox="0 0 27 27" width="27" height="27">
                   <use xlinkHref="#full-screen"></use>
                 </svg>

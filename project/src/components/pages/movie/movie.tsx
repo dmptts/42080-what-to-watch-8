@@ -1,4 +1,5 @@
-import {Link} from 'react-router-dom';
+import {Link, generatePath} from 'react-router-dom';
+import {AppRoute} from '../../../const';
 import {Films} from '../../../types/films';
 import {Footer} from '../../footer/footer';
 import {Logo} from '../../logo/logo';
@@ -43,12 +44,12 @@ function Movie ({films}: MovieProps): JSX.Element {
               </p>
 
               <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
+                <Link to={generatePath(AppRoute.Player, {id})} className="btn btn--play film-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <button className="btn btn--list film-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
-import {VideoStatus} from '../../const';
+import {Link, generatePath} from 'react-router-dom';
+import {AppRoute, VideoStatus} from '../../const';
 import {Film} from '../../types/films';
 import {VideoPlayer} from '../video-player/video-player';
 
@@ -45,7 +45,7 @@ function FilmCard ({film, setActiveCard, isActive}: FilmCardProps): JSX.Element 
         <VideoPlayer film={film} videoStatus={videoStatus} setVideoStatus={setVideoStatus} />
       </div>
       <h3 className="small-film-card__title">
-        <Link className="small-film-card__link" to={`/films/${id}`}>{name}</Link>
+        <Link className="small-film-card__link" to={generatePath(AppRoute.Movie, {id})}>{name}</Link>
       </h3>
     </article>
   );
