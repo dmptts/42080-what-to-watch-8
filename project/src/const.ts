@@ -11,3 +11,9 @@ export enum AuthStatus {
   Auth = 'AUTH',
   UnAuth = 'UNAUTH'
 }
+
+export enum VideoStatus {
+  Playing = 'PLAYING',
+  Paused = 'PAUSED',
+  Stopped = 'STOPPED'
+}

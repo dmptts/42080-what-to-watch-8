@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import {VideoStatus} from '../../const';
 import {Film} from '../../types/films';
 import {VideoPlayer} from '../video-player/video-player';
 
@@ -12,24 +13,25 @@ type FilmCardProps = {
 function FilmCard ({film, setActiveCard, isActive}: FilmCardProps): JSX.Element {
   const {id, name} = film;
 
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const VIDEO_DELAY = 1;
 
-  const videoDelay = 1;
+  const [videoStatus, setVideoStatus] = useState(VideoStatus.Stopped);
+
 
   useEffect(() => {
     let delay: ReturnType<typeof setTimeout> | undefined;
 
     if (isActive) {
       delay = setTimeout(() => {
-        setIsVideoPlaying(true);
-      }, videoDelay * 1000);
+        setVideoStatus(VideoStatus.Playing);
+      }, VIDEO_DELAY * 1000);
     }
 
     return () => {
       if (delay !== undefined) {
         clearTimeout(delay);
       }
-      setIsVideoPlaying(false);
+      setVideoStatus(VideoStatus.Stopped);
     };
   }, [isActive]);
 
@@ -40,7 +42,7 @@ function FilmCard ({film, setActiveCard, isActive}: FilmCardProps): JSX.Element 
       onMouseOut={() => setActiveCard(0)}
     >
       <div className="small-film-card__image">
-        <VideoPlayer film={film} isVideoPlaying={isVideoPlaying} />
+        <VideoPlayer film={film} videoStatus={videoStatus} setVideoStatus={setVideoStatus} />
       </div>
       <h3 className="small-film-card__title">
         <Link className="small-film-card__link" to={`/films/${id}`}>{name}</Link>
